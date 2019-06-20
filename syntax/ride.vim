@@ -10,13 +10,20 @@ syntax keyword rideConditional if then else match
 syntax keyword rideLabel case
 syntax keyword rideKeyword return
 syntax keyword rideException throw
-syntax keyword rideFunction toBase58String toUtf8String getInteger getString getBoolean toString
-syntax keyword rideFunction sigVerify sha256 toBytes
+syntax keyword rideFunction toBase58String toUtf8String getInteger getString getBoolean toString getBinary
+syntax keyword rideFunction getIntegerValue getBooleanValue getBinaryValue getStringValue getBinaryValue
+syntax keyword rideFunction fromBase58String fromBase64String rsaVerify
+syntax keyword rideFunction sigVerify sha256 toBytes take takeRight drop dropRight
+syntax keyword rideFunction size isDefined extract getElement value valueWithErrorMessage extractWithErrorMessage
+syntax keyword rideFunction cons indexOf split parseInt parseIntValue pow log keccak256 blake2b256
+syntax keyword rideFunction addressFromPublicKey addressFromString addressFromRecipient
+syntax keyword rideFunction assetBalance wavesBalance assetInfo blockInfoByHeight transferTransactionById
+
 syntax keyword rideBoolean false true
 syntax keyword rideType Int Integer String Boolean ByteVector
 syntax keyword rideType Transaction InvokeScriptTransaction DataTransaction IssueTransaction
 syntax keyword rideType LeaseTransaction LeaseCancelTransaction TransferTransaction SetScriptTransaction
-syntax keyword rideType Invocation Address Order
+syntax keyword rideType Invocation Address Order Alias ScriptTransfer
 syntax keyword rideType AttachedPayment
 syntax keyword rideTodos contained TODO XXX FIXME NOTE
 syntax keyword rideFunction WriteSet TransferSet ScriptResult DataEntry
@@ -24,6 +31,7 @@ syntax keyword rideFunction WriteSet TransferSet ScriptResult DataEntry
 syntax match rideComment "\v#.*$" contains=rideTodos
 
 syntax match rideOperator "\v\*"
+syntax match rideOperator "\v\%"
 syntax match rideOperator "\v/"
 syntax match rideOperator "\v\+"
 syntax match rideOperator "\v\-"
