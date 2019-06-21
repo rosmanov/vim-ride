@@ -1,12 +1,13 @@
 " Vim indent file
 " Language: RIDE
 " Maintainer: Ruslan Osmanov <rrosmanov@gmail.com>
-" TODO Fix indent after if .. then
 
 if exists("b:did_indent")
   finish
 endif
 let b:did_indent = 1
+let b:else_pattern = '\v<else>\s*\{$'
+let b:else_only_pattern = '\v<else>\s*$'
 
 setlocal indentexpr=GetRideIndent()
 setlocal indentkeys=0{,0},!^F,o,O
@@ -34,13 +35,13 @@ function s:count_braces(lnum, count_open)
   let n_open = 0
   let n_close = 0
   let line = getline(a:lnum)
-  let pattern = '[{}]'
+  let pattern = '[{}\[\]]'
   let i = match(line, pattern)
   while i != -1
     if synIDattr(synID(a:lnum, i + 1, 0), 'name') !~ 'ride\%(Comment\|StringQ\{1,2}\)'
-      if line[i] == '{'
+      if line[i] == '{' || line[i] == '['
         let n_open += 1
-      elseif line[i] == '}'
+      elseif line[i] == '}' || line[i] == ']'
         if n_open > 0
           let n_open -= 1
         else
@@ -63,6 +64,14 @@ function GetRideIndent()
 
   let indent = indent(pnum) + s:count_braces(pnum, 1) * shiftwidth()
         \ - s:count_braces(v:lnum, 0) * shiftwidth()
+
+  if prev_line =~ '\<if\>.*\<then\>\s*$' || prev_line =~ b:else_only_pattern
+      let indent += shiftwidth()
+  endif
+
+  if line =~ b:else_pattern
+      let indent -= shiftwidth()
+  endif
 
   return indent
 endfunction
