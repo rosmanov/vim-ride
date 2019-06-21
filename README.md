@@ -8,3 +8,10 @@ Using [vim-plug](https://github.com/junegunn/vim-plug):
 ```
 Plug 'rosmanov/vim-ride'
 ```
+
+Alternatively, copy the following directories to the vim configuration directory (usually `~/.vim/`):
+
+- ftdetect/
+- ftplugin/
+- indent/
+- syntax/
