@@ -30,6 +30,9 @@ Code completion and linting can be configured as follows:
 ```
 4. Restart (Neo)Vim or run `:CocRestart`.
 
+**Screencast**
+[![asciicast](https://asciinema.org/a/zpSb8Sc6mRaVqZ618NlRnc2KY.svg)](https://asciinema.org/a/zpSb8Sc6mRaVqZ618NlRnc2KY)
+
 # Installation
 
 Using [vim-plug](https://github.com/junegunn/vim-plug):
