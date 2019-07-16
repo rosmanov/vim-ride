@@ -18,7 +18,7 @@ Code completion and linting can be configured as follows:
     "languageserver": {
         "ride": {
             "args": [ "--node-ipc" ],
-            "execArgv": [ "--nolazy", "--inspect-brk=6045" ],
+            "execArgv": [ "--nolazy" ],
             "filetypes": [ "ride" ],
             "initializationOptions": {},
             "module": "/usr/lib/node_modules/@waves/ride-language-server/main.js",
