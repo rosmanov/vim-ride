@@ -23,6 +23,8 @@ syntax keyword rideBoolean false true
 syntax keyword rideType Int Integer String Boolean ByteVector
 syntax keyword rideType Transaction InvokeScriptTransaction DataTransaction IssueTransaction
 syntax keyword rideType LeaseTransaction LeaseCancelTransaction TransferTransaction SetScriptTransaction
+syntax keyword rideType SetAssetScriptTransaction BurnTransaction GenesisTransaction
+syntax keyword rideType PaymentTransaction ReissueTransaction ExchangeTransaction MassTransferTransaction
 syntax keyword rideType Invocation Address Order Alias ScriptTransfer
 syntax keyword rideType AttachedPayment
 syntax keyword rideTodos contained TODO XXX FIXME NOTE
