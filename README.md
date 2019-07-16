@@ -2,6 +2,34 @@
 
 Syntax highlighting for the [RIDE](https://docs.wavesplatform.com/en/ride/about-ride.html) language.
 
+## Code Completion and Linting
+
+Code completion and linting can be configured as follows:
+
+1. Install [coc](https://github.com/neoclide/coc.nvim).
+2. Install [VS Code extension](https://github.com/wavesplatform/ride-vscode):
+```
+:CocInstall https://github.com/wavesplatform/ride-vscode
+```
+3. Open CoC configuration: `:CocConfig` and put a path to the language server launcher (`node_modules/@waves/ride-language-server/main.js`) as follows:
+
+```
+{
+    "languageserver": {
+        "ride": {
+            "args": [ "--node-ipc" ],
+            "execArgv": [ "--nolazy", "--inspect-brk=6045" ],
+            "filetypes": [ "ride" ],
+            "initializationOptions": {},
+            "module": "/usr/lib/node_modules/@waves/ride-language-server/main.js",
+            "settings": { "validate": true },
+            "trace.server": "verbose"
+        }
+    }
+}
+```
+4. Restart (Neo)Vim or run `:CocRestart`.
+
 # Installation
 
 Using [vim-plug](https://github.com/junegunn/vim-plug):
